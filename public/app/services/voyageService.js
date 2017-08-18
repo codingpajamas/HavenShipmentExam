@@ -5,8 +5,8 @@ angular.module('havenApp')
 		['$http', '$q', function($http, $q){
 			var VoyageFactory = {};
 			var arrDates = {
-				minDate : moment('2016-01-06'),
-				maxDate : moment('2016-01-06').add(7, 'days')
+				minDate : moment('2016-01-01'),
+				maxDate : moment('2016-01-06').add(70, 'days')
 			}
 
 			VoyageFactory.get = function(){

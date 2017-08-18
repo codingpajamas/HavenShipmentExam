@@ -25,7 +25,7 @@
 						<span ng-repeat="port in voyage">
 							<span class="port-box">
 								<strong>{{port.port}}</strong>
-								<span>({{port.eta}}-{{port.etd}})</span>
+								<span>({{port.eta | readableDate:'MMMDD'}}-{{port.etd | readableDate:'MMMDD'}})</span>
 							</span>
 							<span class="port-separator" ng-class="{'last':$last}">&rsaquo;</span>
 						</span>
