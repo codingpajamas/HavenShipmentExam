@@ -1,0 +1,37 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12"> 
+			<div class="list-group">
+				<div class="list-group-item active clearfix">
+					<a href="/" class="pull-right btn btn-default  ">Back</a>
+					<h4 class="list-group-item-heading">Available Voyages</h4>
+					<p class="list-group-item-text">
+						<span class="daterange-box">
+							<i class="glyphicon glyphicon-calendar"></i>
+							{{eta}} - {{etd}}
+						</span>
+						<!--
+						<span class="cityrange-box">
+							<i class="glyphicon glyphicon-globe"></i>
+							SGSIN - USLAX
+						</span>
+						-->
+					</p>
+				</div>
+				<a class="list-group-item"  ng-repeat="voyage in voyages">
+					<h4 class="list-group-item-heading">{{voyage[0].vessel}}</h4>
+					<p class="list-group-item-text">
+						<span ng-repeat="port in voyage">
+							<span class="port-box">
+								<strong>{{port.port}}</strong>
+								<span>({{port.eta}}-{{port.etd}})</span>
+							</span>
+							<span class="port-separator" ng-class="{'last':$last}">&rsaquo;</span>
+						</span>
+					</p>
+				</a>
+			</div> 
+		</div>
+	</div>
+</div>

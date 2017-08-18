@@ -1,0 +1,20 @@
+doctype html
+html(ng-app='havenApp')
+  head
+    title= title
+    base(href='/')
+    link(rel='stylesheet', href='/assets/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/assets/css/angular-datepicker.min.css')
+    link(rel='stylesheet', href='/assets/css/styles.css')
+    script(type='text/javascript', src='/assets/js/moment.min.js')
+    script(type='text/javascript', src='/assets/js/angular.min.js')
+    script(type='text/javascript', src='/assets/js/angular-resource.js')
+    script(type='text/javascript', src='/assets/js/angular-route.js')
+    script(type='text/javascript', src='/assets/js/angular-datepicker.min.js')
+    script(type='text/javascript', src='/app/app.js')
+    script(type='text/javascript', src='/app/config/config.js')
+    script(type='text/javascript', src='/app/services/voyageService.js')
+    script(type='text/javascript', src='/app/controllers/homeController.js')
+    script(type='text/javascript', src='/app/controllers/voyagesController.js')
+  body
+    block content

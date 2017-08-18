@@ -1,0 +1,43 @@
+[date-picker] .now {
+	background: transparent !important;
+	color: #333 !important;
+}
+
+[date-picker] .now.active, 
+[date-picker] .active:hover {
+	background-color: #04c !important;
+	color: #fff !important;
+}
+
+.date-range .date-picker-date-time {
+	padding: 10px;
+	background-color: #eee;
+	border: 1px solid #999;
+	margin: 5px;
+}
+#pickerRange {
+	margin: 0 auto 10px;
+	display: inline-block;
+}
+.port-separator {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.port-separator.last {
+	display: none;
+}
+.port-box {
+	background-color: #ccc;
+	border-radius: 2px;
+	display: inline-block;
+	padding: 2px 6px;
+	margin: 1px 0;
+	text-shadow: 0px 1px 0px #fff;
+	font-size: 11px;
+}
+.port-box span {
+	color: #666; 
+}
+.daterange-box {
+	margin-right: 20px;
+}
