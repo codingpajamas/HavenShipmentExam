@@ -2,7 +2,7 @@
 
 angular.module('havenApp')
 	.controller('voyagesCtrl', ['$scope', 'Voyage', function($scope, Voyage){
-
+		$scope.title = 'Available Voyages';
 		$scope.voyages;
 		$scope.dates = Voyage.getDates();
 		$scope.eta = Voyage.getDates().minDate.format('MMMDD');

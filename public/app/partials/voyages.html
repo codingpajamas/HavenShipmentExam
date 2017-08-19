@@ -2,11 +2,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12"> 
+			<h3 class="text-center">{{title}}</h3>
 			<div class="list-group">
 				<div class="list-group-item active clearfix">
-					<a href="/" class="pull-right btn btn-default  ">Back</a>
-					<h4 class="list-group-item-heading">Available Voyages</h4>
-					<p class="list-group-item-text">
+					<a href="/" class="pull-right btn btn-default btn-xs">Back</a>
+					<h4 class="list-group-item-heading">
 						<span class="daterange-box">
 							<i class="glyphicon glyphicon-calendar"></i>
 							{{eta}} - {{etd}}
@@ -17,7 +17,7 @@
 							SGSIN - USLAX
 						</span>
 						-->
-					</p>
+					</h4> 
 				</div>
 				<a class="list-group-item"  ng-repeat="voyage in voyages">
 					<h4 class="list-group-item-heading">{{voyage[0].vessel}}</h4>

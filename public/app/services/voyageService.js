@@ -2,11 +2,11 @@
 
 angular.module('havenApp')
 	.factory('Voyage', 
-		['$http', '$q', function($http, $q){
+		['$http', '$q', 'portcallsUrl', function($http, $q, portcallsUrl){
 			var VoyageFactory = {};
 			var arrDates = {
 				minDate : moment('2016-01-01'),
-				maxDate : moment('2016-01-06').add(70, 'days')
+				maxDate : moment('2016-01-06').add(7, 'days')
 			}
 
 			VoyageFactory.get = function(){
@@ -15,10 +15,10 @@ angular.module('havenApp')
 
 				return $http({
 						method: 'GET',
-						url: 'http://localhost:3000/api/portcalls',
+						url: portcallsUrl,
 						params: {eta: strEta, etd:strEtd}
 					})
-					.then(function(response){ 
+					.then(function(response){
 						return response.data;
 					}, function(errResponse){
 						$q.reject(errResponse);
