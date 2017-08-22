@@ -2,10 +2,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12"> 
-			<h3 class="text-center">{{title}}</h3>
-			<div class="list-group">
+			<h3>
+				<a href="/" class="pull-right btn btn-default btn-sm">Back</a>
+				{{title}}
+			</h3>
+			<div class="list-group" ng-if="!transOpt.isActive">
 				<div class="list-group-item active clearfix">
-					<a href="/" class="pull-right btn btn-default btn-xs">Back</a>
 					<h4 class="list-group-item-heading">
 						<span class="daterange-box">
 							<i class="glyphicon glyphicon-calendar"></i>
@@ -19,7 +21,7 @@
 						-->
 					</h4> 
 				</div>
-				<a class="list-group-item"  ng-repeat="voyage in voyages">
+				<a class="list-group-item"  ng-repeat="voyage in voyages.all">
 					<h4 class="list-group-item-heading">{{voyage[0].vessel}}</h4>
 					<p class="list-group-item-text">
 						<span ng-repeat="port in voyage">
@@ -27,9 +29,68 @@
 								<strong>{{port.port}}</strong>
 								<span>({{port.eta | readableDate:'MMMDD'}}-{{port.etd | readableDate:'MMMDD'}})</span>
 							</span>
-							<span class="port-separator" ng-class="{'last':$last}">&rsaquo;</span>
+							<span class="port-separator" ng-class="{'last':$last}">&raquo;</span>
 						</span>
 					</p>
+				</a>
+			</div>
+
+			<div class="list-group" ng-if="transOpt.isActive">
+				<div class="list-group-item active clearfix">
+					<h4 class="list-group-item-heading clearfix"> 
+						<span class="cityrange-box">
+							<i class="glyphicon glyphicon-globe"></i>
+							{{transOpt.origin}} &raquo; {{transOpt.destination}} 
+							<span>({{eta}} - {{etd}})</span>
+						</span> 
+						<small class="label label-info pull-right">Direct Shipment</small>
+					</h4> 
+				</div>
+				<a class="list-group-item"  ng-repeat="voyage in voyages.direct">
+					<h4 class="list-group-item-heading">{{voyage[0].vessel}}</h4>
+					<p class="list-group-item-text">
+						<span ng-repeat="port in voyage">
+							<span class="port-box">
+								<strong>{{port.port}}</strong>
+								<span>({{port.eta | readableDate:'MMMDD'}}-{{port.etd | readableDate:'MMMDD'}})</span>
+							</span>
+							<span class="port-separator" ng-class="{'last':$last}">&raquo;</span>
+						</span>
+					</p>
+				</a>
+				<a class="list-group-item" ng-if="voyages.direct.length == 0">
+					<h4 class="list-group-item-heading">There are no direct voyages from "{{transOpt.origin}}" to {{transOpt.destination}}</h4>
+				</a>
+			</div>
+
+			<div class="list-group" ng-if="transOpt.isActive">
+				<div class="list-group-item active clearfix">
+					<h4 class="list-group-item-heading clearfix"> 
+						<span class="cityrange-box">
+							<i class="glyphicon glyphicon-random"></i>
+							{{transOpt.origin}} &raquo; {{transOpt.destination}}
+							<span>({{eta}} - {{etd}})</span>
+						</span> 
+						<small class="pull-right label label-info">Transshipment</small>
+					</h4> 
+				</div>
+				<a class="list-group-item"  ng-repeat="(vIndex, voyage) in voyages.transshipment"> 
+					<p class="list-group-item-text">
+						<span ng-repeat="(pIndex, port) in voyage" class="transship-box">
+							<span class="transship-label label" ng-class="::getColor(port.routeId)">
+								<strong>{{port.vessel}}</strong>
+								<span>{{port.port}}</span>
+								<span>({{port.eta | readableDate:'MMMDD'}}-{{port.etd | readableDate:'MMMDD'}})</span>
+							</span>
+							<span class="port-separator" ng-if="!$last">
+								<i ng-if="isTransfer(vIndex, pIndex)" class="glyphicon glyphicon-random"></i>
+								<span ng-if="!isTransfer(vIndex, pIndex)">&raquo;</span>
+							</span> 
+						</span>
+					</p>
+				</a>
+				<a class="list-group-item" ng-if="!voyages.transshipment.length">
+					<p class="text-danger">There are no transshipment options from "{{transOpt.origin}}" to {{transOpt.destination}}</p>
 				</a>
 			</div> 
 		</div>

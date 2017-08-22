@@ -6,10 +6,53 @@
 			<div class="text-center">
 				<div date-range id="pickerRange" start="dates.minDate" end="dates.maxDate" date-change="changeDate" view="date" min-view="date"></div>
 
+				<div class="transshipment-optionwrap">
+					<a class="btn btn-default btn-block btn-sm" ng-if="!transOpt.isActive" ng-click="setTransshipmentOpt()">Add Transshipment Options</a>
+					<div class="transshipment-optionbox" ng-if="transOpt.isActive">
+						<div class="row">
+							<div class="col-md-12">
+								<h4 class="text-left clearfix">
+									<a ng-click="cancelTransshipmentOpt()" class="btn btn-default btn-xs pull-right">Cancel</a>
+									Transshipment Options
+								</h4>
+							</div>
+							<div class="col-sm-4">
+								<select name="transorigin" ng-model="transOpt.origin" class="form-control input-sm">
+									<option value="">Origin</option>
+									<option value="HKHKG">HKHKG</option>
+									<option value="SGSIN">SGSIN</option>
+									<option value="USLAX">USLAX</option>
+									<option value="USOAK">USOAK</option>
+								</select>
+							</div>
+							<div class="col-sm-4">
+								<select name="transdestination" ng-model="transOpt.destination" class="form-control input-sm">
+									<option value="">Destination</option>
+									<option value="HKHKG">HKHKG</option>
+									<option value="SGSIN">SGSIN</option>
+									<option value="USLAX">USLAX</option>
+									<option value="USOAK">USOAK</option>
+								</select>
+							</div>
+							<div class="col-sm-4">
+								<select name="transdestination" ng-model="transOpt.waitDays" class="form-control input-sm">
+									<option value="0">Same Day</option>
+									<option value="3">Wait 3 Days</option>
+									<option value="5">Wait 5 Days</option>
+									<option value="7">Wait 7 Days</option>
+									<option value="10">Wait 10 Days</option>
+								</select>
+							</div>
+							<div class="col-md-12" ng-if="transOpt.error">
+								<div class="alert alert-danger">{{transOpt.error}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<p>
-					<a href="/voyages" class="btn btn-primary">Get Voyages</a>
+					<a class="btn btn-primary" ng-click="getVoyages()">Get Voyages</a>
 				</p>
-			</div> 
+			</div>
 		</div>
 	</div>
 </div>

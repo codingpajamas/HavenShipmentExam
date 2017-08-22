@@ -20,7 +20,7 @@
 	display: inline-block;
 }
 .port-separator {
-	padding-left: 5px;
+	padding-left: 0px;
 	padding-right: 5px;
 }
 .port-separator.last {
@@ -43,4 +43,40 @@
 }
 .list-group-item-heading {
 	margin-bottom: 0;
+}
+
+.transshipment-optionwrap {
+	margin-bottom: 20px;
+}
+.transshipment-optionbox {
+	padding: 10px;
+	background-color: #eee;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+.transshipment-optionbox .alert-danger {
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.transship-box {
+	display: inline-block;
+    vertical-align: middle;
+}
+.transship-label {
+	display: inline-block;
+	margin-bottom: 3px;
+	vertical-align: middle;
+}
+.transship-label strong {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 2px;
+    text-align: center;
+}
+.transship-box .port-separator {
+	vertical-align: middle;
+    display: inline-block;
 }
